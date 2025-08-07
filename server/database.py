@@ -1,20 +1,14 @@
 from pymongo import MongoClient
+import os
+from dotenv import load_dotenv
 
-MONGO_URI = "mongodb://localhost:27017/"
-DATABASE_NAME = "HarmonyHacks"
+load_dotenv()
 
 def dbConnect():
     try:
-        client = MongoClient(
-    'mongodb://localhost:27017/',
-    ssl=False, 
-    socketTimeoutMS=20000,
-    connectTimeoutMS=20000,
-    serverSelectionTimeoutMS=5000
-)
+        client = MongoClient(os.getenv("MONGO_URI"), connectTimeoutMS=5000, serverSelectionTimeoutMS=5000)
         print("Conexión exitosa a la base de datos")
-        db = client[DATABASE_NAME]
-        
+        db = client["harmonyhacks_db"]
         return db
     except ConnectionError as e:
         print(f"Error al conectar a la base de datos: {e}")
