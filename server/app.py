@@ -13,6 +13,9 @@ db = db.dbConnect()
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/')
+def home():
+    return "¡Funciona!"
 
 
 if __name__ == '__main__':

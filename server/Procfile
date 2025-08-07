@@ -1,0 +1,1 @@
+web: gunicorn tu_archivo:app --pythonpath server

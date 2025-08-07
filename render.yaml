@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: harmonyhacks-backend  
-    runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app --pythonpath server 
-    envVars:
-      - key: MONGO_URI
-        value: mongodb+srv://melinalarramendy:GfqPfNw9rk8OeQM5@clusterharmonyhacks.cx7qvdw.mongodb.net/harmonyhacks_db?retryWrites=true&w=majority
